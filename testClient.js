@@ -65,8 +65,16 @@ describe('Test Case 2', () => {
             await driver.wait(until.elementLocated(By.id('email')), 20000);
             await driver.findElement(By.id('email')).sendKeys('test');
             await driver.findElement(By.id('SubmitLogin')).sendKeys(Key.RETURN).then(async () => {
+                const email =  await driver.findElement(By.id('email'));
+                var  validationMessage = email.getAttribute("validationMessage");
+                validationMessage.then(async (value) => {
+                    await expect(value).to.equal("Please include an '@' in the email address. 'test' is missing an '@'.");
+                }).catch((err) => {
+                    console.log(err);
+                });
 
             });
+
             // Take screenshot of errors during test run for easy debugging and documentation
             await driver.takeScreenshot().then((image, err) => {
                 require('fs').writeFile('screenshots/case2.png', image, 'base64', (err) => {
