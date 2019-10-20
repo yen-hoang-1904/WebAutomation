@@ -1,0 +1,29 @@
+{
+  "name": "webautomation",
+  "version": "1.0.0",
+  "description": "This project is aimed at building a web automation framework that validates the front end application developed in-house.",
+  "main": "testClient.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-driver-installer": "^2.0.3",
+    "chai": "^4.2.0",
+    "chromedriver": "^77.0.0",
+    "eslint": "^6.5.1",
+    "mocha": "^6.2.1",
+    "selenium-webdriver": "^4.0.0-alpha.5"
+  },
+  "scripts": {
+    "test": "mocha --recursive --timeout 20000 testClient.js",
+    "eslint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yen-hoang-1904/WebAutomation.git"
+  },
+  "author": "Yen HOANG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yen-hoang-1904/WebAutomation/issues"
+  },
+  "homepage": "https://github.com/yen-hoang-1904/WebAutomation#readme"
+}
