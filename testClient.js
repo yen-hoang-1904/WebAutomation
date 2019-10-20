@@ -6,8 +6,10 @@ const url = 'https://marksandspicy.com/';
 const caps = {
     browserName: 'chrome',
     screen_resolution: '1366x768',
+    // For superior debugging capabilities, CrossBrowserTesting offers the ability to record a video of the Selenium test session
     record_video: 'true',
-    record_network: 'false'
+    // To record the network packets during test for performance debugging, set the following to “true”.
+    record_network: 'true'
 };
 const key = require('selenium-webdriver').Key;
 
@@ -65,8 +67,9 @@ describe('Test Case 2', () => {
             await driver.wait(until.elementLocated(By.id('email')), 20000);
             await driver.findElement(By.id('email')).sendKeys('test');
             await driver.findElement(By.id('SubmitLogin')).sendKeys(Key.RETURN).then(async () => {
+                // Tooltip message is thrown by attribute "validationMessage" of HTML5
                 const email =  await driver.findElement(By.id('email'));
-                var  validationMessage = email.getAttribute("validationMessage");
+                const validationMessage = email.getAttribute("validationMessage");
                 validationMessage.then(async (value) => {
                     await expect(value).to.equal("Please include an '@' in the email address. 'test' is missing an '@'.");
                 }).catch((err) => {
@@ -105,7 +108,6 @@ describe('Test Case 3', () => {
             await driver.findElement(By.id('email')).sendKeys(key.TAB);
             await driver.wait(until.elementLocated(By.id('passwd')), 20000);
             await driver.findElement(By.id('passwd')).sendKeys(key.TAB);
-          
             const emailInput = await driver.findElement(By.id('email'));
             const emailParent = emailInput.findElement(By.xpath("./.."));
             await emailParent.getAttribute('class').then(async (value) => {
@@ -113,7 +115,6 @@ describe('Test Case 3', () => {
             }).catch((err) => {
                 console.log(err); 
             });
-          
             const passwordInput = await driver.findElement(By.id('email'));
             const passwordParent = passwordInput.findElement(By.xpath("./.."));
             await passwordParent.getAttribute('class').then(async (value) => {
@@ -121,7 +122,6 @@ describe('Test Case 3', () => {
             }).catch((err) => {
                 console.log(err); 
             });
-
             // Take screenshot of errors during test run for easy debugging and documentation
             await driver.takeScreenshot().then((image, err) => {
                 require('fs').writeFile('screenshots/case3.png', image, 'base64', (err) => {
