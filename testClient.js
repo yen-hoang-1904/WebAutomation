@@ -9,7 +9,7 @@ const caps = {
     record_video: 'true',
     record_network: 'false'
 };
-var key = require('selenium-webdriver').Key;
+const key = require('selenium-webdriver').Key;
 
 describe('Test Case 1', () => {
     let driver;
@@ -97,12 +97,23 @@ describe('Test Case 3', () => {
             await driver.findElement(By.id('email')).sendKeys(key.TAB);
             await driver.wait(until.elementLocated(By.id('passwd')), 20000);
             await driver.findElement(By.id('passwd')).sendKeys(key.TAB);
-            var errorForm = await driver.findElement(By.className('form-group form-error'));
-            await errorForm.getAttribute('class').then(async (value) => {
+          
+            const emailInput = await driver.findElement(By.id('email'));
+            const emailParent = emailInput.findElement(By.xpath("./.."));
+            await emailParent.getAttribute('class').then(async (value) => {
                 await expect(value).to.include('form-error');
             }).catch((err) => {
                 console.log(err); 
             });
+          
+            const passwordInput = await driver.findElement(By.id('email'));
+            const passwordParent = passwordInput.findElement(By.xpath("./.."));
+            await passwordParent.getAttribute('class').then(async (value) => {
+                await expect(value).to.include('form-error');
+            }).catch((err) => {
+                console.log(err); 
+            });
+
             // Take screenshot of errors during test run for easy debugging and documentation
             await driver.takeScreenshot().then((image, err) => {
                 require('fs').writeFile('screenshots/case3.png', image, 'base64', (err) => {
@@ -148,7 +159,7 @@ describe('Test Case 4', () => {
             await driver.findElement(By.id('dateAnnee')).sendKeys('1987');
             await driver.findElement(By.id('adresse')).sendKeys('60 Boulevard Raymond Point Caree');
             await driver.findElement(By.id('codePostal')).sendKeys('92160');
-            var ville = await driver.findElement(By.id('ville'));
+            const ville = await driver.findElement(By.id('ville'));
             ville.getText().then(async (value) => {
                 await expect(value).to.equal("Antony");            
             }).catch((err) => {
@@ -171,7 +182,6 @@ describe('Test Case 4', () => {
         handleFailure(err, driver)
     }
 });
-
 
 
 function handleFailure(err, driver) {
