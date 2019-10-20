@@ -1,5 +1,6 @@
-Web Automation
-The aime of the project is to build a web automation framework that will validate the front end application developed in-house 
+WEB AUTOMATION 
+
+The aime of the project is to build a web automation framework that will validate the front end application developed in-house. For demonstration purpose, the targets are designed to test Chrome browser only. For future improvement, to speed our automated testing, we can run tests in parallel, making use of several browsers or devices at one time with the help of services like BrowserStack, which provide numerous machines to test against, comes in handy. 
 
 Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -8,6 +9,7 @@ Prerequisites
 What things you need to install the software and how to install them:
 _ Node version manager: nvm 0.35.0.
 _ NodeJs: 12.12.0 (latest).
+_ Chrome: 77.0.
 
 Installing in Mac/Linux
 Run commands below:
