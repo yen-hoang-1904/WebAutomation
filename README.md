@@ -1,6 +1,8 @@
 WEB AUTOMATION 
 
-The aime of the project is to build a web automation framework that will validate the front end application developed in-house. For demonstration purpose, the targets are designed to test Chrome browser only. For future improvement, to speed our automated testing, we can run tests in parallel, making use of several browsers or devices at one time with the help of services like BrowserStack, which provide numerous machines to test against, comes in handy. Running automated Browser tests on BrowserStack is not free. See available plans at https://www.browserstack.com/pricing.
+The aime of the project is to build a web automation framework that will validate the front end application developed in-house. For demonstration purpose, the tests are designed to test Chrome browser only. 
+For future improvement, to speed our automated testing, we can run tests in parallel, making use of several browsers or devices at one time with the help of services like BrowserStack, which provide numerous machines to test against, comes in handy. 
+Running automated Browser tests on BrowserStack is not free. See available plans at https://www.browserstack.com/pricing.
 
 Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
